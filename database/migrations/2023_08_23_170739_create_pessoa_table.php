@@ -13,12 +13,15 @@ return new class extends Migration
     {
         Schema::create('pessoa', function (Blueprint $table) {
             $table->id();
+            //$table->unsignedBigInteger('user_id');
             $table->string('nome',80);
             $table->date('DT_Nascimento');
             $table->string('Incricao_Nacional',14);
             $table->string('NO_Documento',30);
             $table->char('ST_Tipo_Pessoa',1);
             $table->timestamps();
+            
+            //$table->foreign('user_id')->references('id')->on('users');
         });
     }
 
