@@ -8,8 +8,12 @@ use Illuminate\Http\Request;
 class SiteController extends Controller
 {
     public function home()
-    {
-        return view('site.home');
+    {   
+        $codigo_parceiro = request('resource');
+        return view('site.home',['codigo_parceiro' => $codigo_parceiro]);
+        
+        
+        //return view('site.layout.master',['codigo_parceiro' => $codigo_parceiro]);
     }
 
     public function contact()

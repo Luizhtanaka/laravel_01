@@ -2,6 +2,7 @@
 
 @section('content')
 	<!-- Banner -->
+	{{ $codigo_parceiro }}
 	@include('site.layout.banner')	
 
 	<!-- Section -->

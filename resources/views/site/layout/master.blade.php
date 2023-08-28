@@ -19,7 +19,7 @@
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-
+							{{ $codigo_parceiro }}
 							<!-- Header -->
                             @include('site.layout.header')
 

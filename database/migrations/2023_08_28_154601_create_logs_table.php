@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('logs', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            
+            $table->timestamp('DH_Evento',0);
+            $table->char('TP_Evento',1);
+            $table->text('Descricao');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
