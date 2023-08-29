@@ -5,40 +5,57 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>Editorial by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+<head>
+	<title>Editorial by HTML5 UP</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+</head>
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
-							{{ $codigo_parceiro }}
-							<!-- Header -->
-                            @include('site.layout.header')
+<body class="is-preload">
 
-                            @yield('content')
+	<!-- Wrapper -->
+	<div id="wrapper">
 
-						</div>
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
+				<!-- Header -->
+				@include('site.layout.header')
+				<form action="">
+					<div>
+						<label name='nome' for="">Nome</label>
+						<input type="text">
 					</div>
 
-				<!-- Sidebar -->
-                @include('site.layout.Sidebar')
+					<div>
+						<label name='email' for="">E-mail</label>
+						<input type="email">
+					</div>
+
+					<div>
+						<input type="submit">
+					</div>
+				</form>
+
+				@yield('content')
 
 			</div>
+		</div>
 
-		<!-- Scripts -->
-			<script src="{{asset('assets/js/jquery.min.js')}}"></script>
-			<script src="{{asset('assets/js/browser.min.js')}}"></script>
-			<script src="{{asset('assets/js/breakpoints.min.js')}}"></script>
-			<script src="{{asset('assets/js/util.js')}}"></script>
-			<script src="{{asset('assets/js/main.js')}}"></script>
+		<!-- Sidebar -->
+		@include('site.layout.Sidebar')
 
-	</body>
+	</div>
+
+	<!-- Scripts -->
+	<script src="{{asset('assets/js/jquery.min.js')}}"></script>
+	<script src="{{asset('assets/js/browser.min.js')}}"></script>
+	<script src="{{asset('assets/js/breakpoints.min.js')}}"></script>
+	<script src="{{asset('assets/js/util.js')}}"></script>
+	<script src="{{asset('assets/js/main.js')}}"></script>
+
+</body>
+
 </html>

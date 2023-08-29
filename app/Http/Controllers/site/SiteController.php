@@ -3,16 +3,64 @@
 namespace App\Http\Controllers\site;
 
 use App\Http\Controllers\Controller;
+use App\Models\Lead;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SiteController extends Controller
 {
-    public function home()
+    public function home(Request $request)
     {   
+        $codigo_parceiro = request('resource');
+        //$user = User::where('codigo', $codigo_parceiro)->first();
+
+        $user = DB::table('users')
+                ->join('pessoa','users.pessoa_id','=','pessoa.id')
+                ->where('codigo', $codigo_parceiro)
+                ->first();
+        //dd($user);
+        if (isset($user->codigo) && !empty($user->codigo)) {
+            // O CODIGO DE USUÁRIO EXISTE E SERÁ GRAVADO O LEADS NA TABELA leads
+            $lead = new Lead();
+
+            $lead->user_id  = $user->id;
+            $lead->Nome     = $user->nome;
+            $lead->email    = $user->email;
+            $lead->save();
+
+        }
+        /* else {
+            // O CODIGO NAO EXISTE, SERÁ GRAVADO COMO USUÁRIO DEFAULT
+            $lead = new Lead();
+
+            $lead->user_id = 1;
+            $lead->nome = 'Administrador';
+            $lead->email = 'luizhenrique.tk@hotmail.com';
+            $lead->save();
+        }
+        */
+
+        //$codigo_parceiro = request('resource');
+        return view('site.home',['codigo_parceiro' => $codigo_parceiro]);
+
+        /*
+        $data = $request->all();
+
+        $username = $data['codigo'];
+
+        $user = User::where('codigo', $username)->first();
+        
+        if ($user) {
+            return response()->json(['message' => 'Usuário cadastrado'], 200);
+        } else {
+            return response()->json(['message' => 'Usuário não cadastrado'], 404);
+        }
+
         $codigo_parceiro = request('resource');
         return view('site.home',['codigo_parceiro' => $codigo_parceiro]);
         
-        
+        */
         //return view('site.layout.master',['codigo_parceiro' => $codigo_parceiro]);
     }
 
