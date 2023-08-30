@@ -43,25 +43,6 @@ class SiteController extends Controller
 
         //$codigo_parceiro = request('resource');
         return view('site.home',['codigo_parceiro' => $codigo_parceiro]);
-
-        /*
-        $data = $request->all();
-
-        $username = $data['codigo'];
-
-        $user = User::where('codigo', $username)->first();
-        
-        if ($user) {
-            return response()->json(['message' => 'Usuário cadastrado'], 200);
-        } else {
-            return response()->json(['message' => 'Usuário não cadastrado'], 404);
-        }
-
-        $codigo_parceiro = request('resource');
-        return view('site.home',['codigo_parceiro' => $codigo_parceiro]);
-        
-        */
-        //return view('site.layout.master',['codigo_parceiro' => $codigo_parceiro]);
     }
 
     public function contact()
