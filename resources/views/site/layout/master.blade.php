@@ -2805,7 +2805,8 @@
                                  </div>
                                  <div class="et_pb_module et_pb_text et_pb_text_46  et_pb_text_align_left et_pb_bg_layout_light">
                                     <div class="et_pb_text_inner">
-                                       <form id="form-consorcio">
+                                       <form action=" {{ route('site.createLead') }} " method="post" id="form-consorcio">
+										  @csrf
                                           <label for="Nome">Nome:</label>
                                           <input required name="Nome" id="Nome" type="name">
                                           <label for="Email">E-mail:</label>

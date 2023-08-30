@@ -21,7 +21,8 @@ Route::get('/', function () {
 */
 
 Route::get('/',[SiteController::class,'home'])->name('site.home');
-Route::post('/',[SiteController::class,'home'])->name('site.home');
+Route::post('/',[LeadController::class,'createLead'])->name('site.createLead');
 
-Route::get('/contato',[SiteController::class,'contact'])->name('site.contact');
+
+//Route::get('/contato',[SiteController::class,'contact'])->name('site.contact');
 //Route::get('/sobre',[SiteController::class,'sobre'])->name('site.sobre');
