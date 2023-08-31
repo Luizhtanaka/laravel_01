@@ -2814,11 +2814,14 @@
                                           <input required checked type="checkbox" name="Termos" id="Termos">
                                           <p>Eu concordo em receber informações do Consorcio Canopus por e-mail.</p>
                                           <input name="Produto" id="Produto" type="hidden" value="Consórcio">
-                                          <input name="Source" id="Source" type="hidden" value>
-                                          <input name="Medium" id="Medium" type="hidden" value>
-                                          <input name="Campaign" id="Campaign" type="hidden" value>
+                                          <input type="hidden" name="resource" value="{{ $resource }}" />
                                           <button type="submit" id="enviar">Solicitar Contato</button>
                                        </form>
+                                       @if (session('success'))
+                                            <div class="alert alert-success">
+                                                {{ session('success') }}
+                                            </div>
+                                        @endif
                                        <div id="response">
                                           <pre></pre>
                                        </div>
