@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\site\SiteController;
+use App\Http\Controllers\site\LeadController;
 
 
 /*
@@ -21,7 +22,8 @@ Route::get('/', function () {
 */
 
 Route::get('/',[SiteController::class,'home'])->name('site.home');
-Route::post('/',[LeadController::class,'createLead'])->name('site.createLead');
+
+Route::post('/leads',[LeadController::class,'createLead'])->name('site.createLead');
 
 
 //Route::get('/contato',[SiteController::class,'contact'])->name('site.contact');
