@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\site\SiteController;
 use App\Http\Controllers\site\LeadController;
+use App\Http\Controllers\Admin\AuthController;
 
 
 /*
@@ -25,6 +26,15 @@ Route::get('/',[SiteController::class,'home'])->name('site.home');
 
 Route::post('/leads',[LeadController::class,'createLead'])->name('site.createLead');
 
+
+Route::group(['prefix'=> 'admin','as' => 'admin.'],function(){
+    Route::get('/',[AuthController::class,'login'])->name('login');
+    Route::post('/login/do',[AuthController::class,'attempt'])->name('login.do');
+    Route::get('/logout',[AuthController::class,'logout'])->name('logout');
+
+
+    Route::get('/dashboard',[AuthController::class,'dashboard'])->name('dashboard');
+});
 
 //Route::get('/contato',[SiteController::class,'contact'])->name('site.contact');
 //Route::get('/sobre',[SiteController::class,'sobre'])->name('site.sobre');

@@ -16,13 +16,13 @@ class LeadController extends Controller
         $codigo_parceiro = request(['Nome','Email','resource']);
         //$codigo_parceiro = request()->query('resource');
         //dd($codigo_parceiro['resource']);
-        //dd($codigo_parceiro);
+        //dd($codigo_parceiro['resource']);
 
         $user = DB::table('users')
         //->join('pessoa','users.pessoa_id','=','pessoa.id')
-        ->where('codigo', '=', $codigo_parceiro['resource'])
+        ->where('codigo','=', $codigo_parceiro['resource'])
         ->first();
-        
+        //dd($user);
         if (isset($user->codigo) && !empty($user->codigo)) {
             
             // O CODIGO DE USUÁRIO EXISTE E SERÁ GRAVADO O LEADS NA TABELA leads
