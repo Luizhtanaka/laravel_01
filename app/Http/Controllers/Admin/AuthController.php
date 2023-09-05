@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use Hash;
+use Session;
 
 class AuthController extends Controller
 {
@@ -14,15 +17,22 @@ class AuthController extends Controller
 
     public function attempt(Request $request){
         // Autenticar, verificar se existe usuário no banco de dados
-        dump($request)->all();
+        //dump($request)->all();
         $credentials = [
             'email' => $request->get('email'),
             'password' => $request->get('password')
         ];
-        dd($request);
+        dump($credentials);
 
         $attemp = Auth::attempt($credentials);
-
+        /*
+        User::create(
+            [
+                'email' => 'roberto@ic.ufmt.br',
+                'password' => Hash::make('123456'),
+                'codigo'=> 'Roberto'
+            ]
+            );*/
         dump($attemp);
     }
 
